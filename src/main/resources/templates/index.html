@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>카테고리 유의어 관리</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/app/css/style.css" th:href="@{/app/css/style.css}"/>
+    <link rel="stylesheet" href="../static/app/css/xeditable.min.css" th:href="@{/app/css/xeditable.min.css}"/>
+    <script type="text/javascript" src="/static/app/js/xeditable.min.js" th:src="@{/app/js/xeditable.min.js}"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+
+    <script type="text/javascript" src="/static/app/module/app.module.js" th:src="@{/app/module/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/controller/category.controller.js" th:src="@{/app/controller/category.controller.js}"></script>
+    <script type="text/javascript" src="/static/app/controller/page.controller.js" th:src="@{/app/controller/page.controller.js}"></script>
+    <script type="text/javascript" src="/static/app/controller/search.controller.js" th:src="@{/app/controller/search.controller.js}"></script>
+    <script type="text/javascript" src="/static/app/directive/upload.directive.js" th:src="@{/app/directive/upload.directive.js}"></script>
+    <script type="text/javascript" src="/static/app/directive/search.directive.js" th:src="@{/app/directive/search.directive.js}"></script>
+    <script type="text/javascript" src="/static/app/directive/table.directive.js" th:src="@{/app/directive/table.directive.js}"></script>
+    <script type="text/javascript" src="/static/app/directive/paging.directive.js" th:src="@{/app/directive/paging.directive.js}"></script>
+</head>
+
+<body ng-app="adminApp" ng-controller="CategoryCtrl">
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Category Admin</a>
+        </div>
+    </nav>
+</header>
+
+<div ng-controller="PageCtrl">
+    <div class="search-cnt" ng-controller="SearchCtrl">
+
+        <div style="margin: 10px;">
+            <upload-bar class="pull-left"></upload-bar>
+            <search-bar class="pull-right"></search-bar>
+        </div>
+
+        <table-section></table-section>
+        <paging></paging>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container" style="margin-bottom: 30px"></div>
+</footer>
+
+</body>
+</html>
