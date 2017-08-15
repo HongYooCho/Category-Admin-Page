@@ -1,0 +1,24 @@
+<label class="text-center">키워드 (동의어, 유의어)
+    <input class="form-control" ng-model="synonymFilter" ng-change="onSearched()"/>
+</label>
+
+<label class="text-center">사용여부
+    <select class="form-control" name="availability" ng-model="availabilityFilter" ng-change="onSearched()">
+        <option value="all">전체</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select>
+</label>
+
+<label class="text-center">First Depth
+    <select class="form-control" ng-model="selected1DepthCategory"
+            ng-options="item for item in firstDepthCategory"
+            ng-change="onFirstDepthChanged()">
+    </select>
+</label>
+
+<label class="text-center">Second Depth
+    <select class="form-control" ng-model="selected2DepthCategory"
+            ng-options="item for item in secondDepthCategory" ng-change="onSearched()">
+    </select>
+</label>

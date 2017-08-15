@@ -1,0 +1,65 @@
+<table class="table table-striped table-condensed table-hover table-bordered table-section">
+    <thead>
+    <tr>
+        <th class="cat-no" ng-click="sortBy('catNo')">번호</th>
+        <th class="cat-name">카테고리 명</th>
+        <th class="same-word">동의어</th>
+        <th class="similar-word">유의어</th>
+        <th class="weight" ng-click="sortBy('weight')">가중치</th>
+        <th class="availability" ng-click="sortBy('availability')">사용 여부</th>
+        <th class="worker" ng-click="sortBy('worker')">작업자</th>
+        <th class="work-date" ng-click="sortBy('workDate')">작업 일시</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- 검색 필터 & 정렬 -->
+    <tr ng-repeat="cat in category | filter:synonym | filter:availability | filter:firstDepth | filter:secondDepth | orderBy:propertyName:reverse | startFrom:currentPage * pageSize | limitTo:pageSize">
+        <!-- 추가 수정된 카테고리 하이라이트 -->
+        <td style="text-align:center" ng-style="highlightChangedCategory(cat.catNo)">{{cat.catNo}}</td>
+
+        <td>{{cat.firstCatName}} {{isEmptyCategory(cat.secondCatName)}} {{isEmptyCategory(cat.thirdCatName)}}
+            {{isEmptyCategory(cat.fourthCatName)}}
+        </td>
+
+        <td>
+            <div class="popover-wrapper">
+                <span class="text-hiding">
+                <a editable-text="cat.sameWords" e-form="modifySameBtn" onbeforesave="isChanged(category.sameWords, $data, cat)">
+                    {{cat.sameWords || 'insert' }}</a></span>
+                <span class="glyphicon glyphicon-edit modify-btn" ng-click="modifySameBtn.$show()" ng-hide="modifySameBtn.$visible"></span>
+            </div>
+        </td>
+
+        <td>
+            <div class="popover-wrapper">
+                <span class="text-hiding">
+                <a editable-text="cat.similarWords" e-form="modifySimilarBtn" onbeforesave="isChanged(category.similarWords, $data, cat)">
+                    {{cat.similarWords || 'insert' }}</a></span>
+                <span class="glyphicon glyphicon-edit modify-btn" ng-click="modifySimilarBtn.$show()" ng-hide="modifySimilarBtn.$visible"></span>
+            </div>
+        </td>
+
+        <td>
+            <div class="popover-wrapper">
+                <a editable-text="cat.weight" e-form="modifyWeightBtn" onbeforesave="checkWeight(category.weight, $data, cat)" onaftersave="typeToInt(cat, $data)">
+                    {{cat.weight || 0 }}</a>
+                <span class="glyphicon glyphicon-edit modify-btn" ng-click="modifyWeightBtn.$show()" ng-hide="modifyWeightBtn.$visible"></span>
+            </div>
+        </td>
+
+        <td class="center">
+            <label class="input-toggle">
+                <input type="checkbox" name="{{cat.catNo}}" ng-model="cat.availability"
+                       ng-value="{{cat.catNo}}" ng-change="updateWorkDate(cat)" checked=""/>
+                <span></span>
+            </label>
+        </td>
+
+        <td style="text-align:center">{{cat.worker}}</td>
+
+        <td>{{cat.workDate | date:'yyyy-MM-dd'}}</td>
+    </tr>
+    </tbody>
+
+</table>

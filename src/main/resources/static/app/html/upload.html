@@ -1,0 +1,26 @@
+<div xmlns="http://www.w3.org/1999/html" class="upload-bar">
+    <form class="file-select" id="uploadForm" enctype="multipart/form-data">
+        <div class="input-group">
+            <label class="input-group-btn" for="uploadFile">
+                        <span class="btn btn-primary upload-btn">
+                            파일 선택<input type="file" id="uploadFile" style="display: none;" placeholder="선택된 파일이 없습니다."
+                                        accept=".csv" name="file-data" value=""
+                                        onchange="angular.element(this).scope().fileSelected()">
+                        </span>
+            </label>
+            <input type="text" class="form-control" value="{{fileName}}" disabled>
+
+            <!-- 선택한 CSV 파일의 데이터를 화면에 출력 -->
+            <span class="btn btn-primary upload-btn" ng-disabled="doingUpload()" ng-click="csvUpload()">업로드</span>
+            <!-- DB의 데이터를 CSV 파일로 저장 -->
+            <a class="btn btn-primary upload-btn" href="" ng-disabled="doingDownload()" download="data.csv" ng-click="csvDownload()">다운로드</a>
+
+            <button class="btn btn-danger pull-right" ng-disabled="doingRenewal()" ng-click="renewalCategory()">카테고리 업데이트</button> <!-- 새로운 카테고리를 반영 -->
+        </div>
+    </form>
+</div>
+
+<!-- 현재 화면 데이터를 DB에 저장 -->
+<button class="btn btn-info db-btn" ng-disabled="doingUpdate()" type="button" ng-click="synchronizeWithDB()">반영</button>
+<!-- From DB -->
+<button class="btn btn-info db-btn" ng-disabled="doingInit()" type="button" ng-click="init()">처음으로</button>

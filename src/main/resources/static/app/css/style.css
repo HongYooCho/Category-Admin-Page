@@ -1,0 +1,211 @@
+table {
+    border-color: #7cbcbf;
+}
+
+th {
+    background-color: #7cbcbf;
+    color: white;
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.modify-btn {
+    float: right;
+    color: #1D8B90;
+}
+
+/* table col size */
+.cat-no {
+    text-align: center;
+    width: 6%
+}
+
+.cat-name {
+    text-align: center;
+    width: 37%
+}
+
+.same-word {
+    text-align: center;
+    width: 17%
+}
+
+.similar-word {
+    text-align: center;
+    width: 17%
+}
+
+.weight {
+    text-align: center;
+    width: 5%
+}
+
+.availability {
+    text-align: center;
+    width: 6%
+}
+
+.worker {
+    text-align: center;
+    width: 5%
+}
+
+.work-date {
+    text-align: center;
+    width: 7%
+}
+
+/* upload btn size */
+.upload-btn {
+    width: 80px;
+    margin-left: 3px;
+}
+
+/* db btn size */
+.db-btn {
+    width: 80px;
+}
+
+/* table section */
+.table-section {
+    table-layout: fixed;
+    padding: 1%;
+    margin: 20px 10px;
+}
+
+.search-cnt {
+    max-width: 1500px !important; min-width: 1200px;
+}
+
+/* search bar */
+.search-bar {
+    width: 200px;
+}
+
+.upload-bar {
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 200px !important;
+}
+
+/* hide overflow of text in table (same word, similar word) */
+.text-hiding {
+    width: 90%;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 70%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+label.input-toggle {
+    line-height: 0;
+    font-size: 0;
+    display: inline-block;
+    margin: 0;
+}
+
+label.input-toggle > span {
+    display: inline-block;
+    position: relative;
+    background-image: -webkit-linear-gradient(left, #848484 0%, #848484 50%, #7cbcbf 50%, #7cbcbf 100%);
+    background-image: linear-gradient(to right, #848484 0%, #848484 50%, #7cbcbf 50%, #7cbcbf 100%);
+    background-size: 64px 14px;
+    background-position: 0%;
+    border-radius: 32px;
+    width: 32px;
+    height: 14px;
+    cursor: pointer;
+    -webkit-transition: background-position 0.2s ease-in;
+    transition: background-position 0.2s ease-in;
+}
+
+label.input-toggle > input:checked + span {
+    background-position: -100%;
+}
+
+label.input-toggle > span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #F1F1F1;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    -webkit-transition: left 0.2s ease-in, background-color 0.2s ease-in, -webkit-transform 0.3s ease;
+    transition: left 0.2s ease-in, background-color 0.2s ease-in, -webkit-transform 0.3s ease;
+    transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
+    transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+label.input-toggle > input:checked + span:after {
+    left: calc(100% - 18px);
+    background-color: #1D8B90;
+}
+
+label.input-toggle > span:active:after {
+    -webkit-transform: translateY(-50%) scale3d(1.15, 0.85, 1);
+    transform: translateY(-50%) scale3d(1.15, 0.85, 1);
+}
+
+label.input-toggle > input:disabled + span:active:after {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+label.input-toggle > input:disabled + span {
+    cursor: default;
+}
+
+label.input-toggle > input:disabled + span {
+    background: #D5D5D5;
+}
+
+label.input-toggle > input:disabled + span:after {
+    background: #BDBDBD;
+}
+
+label.input-toggle > input {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
